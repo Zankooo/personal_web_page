@@ -45,7 +45,7 @@ function scrollToTop() {
         <a href="#about" class="nav-link">About Me</a>
         <a href="#skills" class="nav-link">Skills</a>
         <a href="#collaborations" class="nav-link">Collaborations</a>
-        <a href="#projects" class="nav-link">Projects</a>
+        
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
