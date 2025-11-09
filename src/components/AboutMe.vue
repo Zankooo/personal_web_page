@@ -67,7 +67,7 @@
             class="mt-10 flex flex-wrap gap-3 justify-center lg:justify-start"
           >
             <a
-              href="../../public/generalen cv .pdf"
+              href="/generalen-cv.pdf"
               download="Zan-Stankovic-CV.pdf"
               class="inline-flex items-center justify-center
                     px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
