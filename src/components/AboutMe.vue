@@ -1,5 +1,7 @@
 <script setup>
 // zaenkrat ne rabimo logike – tu lahko kasneje dodaš npr. props za CV/LinkedIn linke
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 </script>
 
 <template>
@@ -12,7 +14,7 @@
       <!-- Glavni naslov -->
       <div class="text-center mb-8">
         <h2 class="text-2xl sm:text-3xl font-bold tracking-wide">
-          ABOUT ME
+          {{ t('about.title') }}
         </h2>
         <div class="mt-3 flex justify-center">
           <span class="h-1 w-16 rounded-full bg-blue-500"></span>
@@ -24,41 +26,29 @@
         <!-- LEVA STRAN – tekst -->
         <div class="text-center lg:text-left">
           <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-6">
-            Get to know me!
+            {{t('about.subtitle')}}
           </h3>
 
           <div
             class="text-sm sm:text-base text-gray-800 leading-relaxed space-y-4"
           >
             <p>
-              I'm a Frontend Focused Web Developer building and managing the
-              front-end of websites and web applications that leads to the
-              success of the overall product.
+              {{ t('about.text1') }}
             </p>
 
             <p>
-              Check out some of my work in the Projects section. I also like
-              sharing content related to the stuff that I have learned over the
-              years in Web Development so it can help other people of the Dev
-              Community.
+              {{ t('about.text2') }}
             </p>
 
             <p>
-              Feel free to connect or follow me on my
-              <span class="font-semibold underline">LinkedIn</span> and
-              <span class="font-semibold underline">Instagram</span>, where I
-              post useful content related to Web Development and Programming.
+              {{ t('about.text3') }}
             </p>
 
             <p>
-              I'm open to job opportunities where I can contribute, learn and
-              grow. If you have a good opportunity that matches my skills and
-              experience then don't hesitate to contact me.
+              {{ t('about.text4') }}
             </p>
             <p>
-              I'm open to job opportunities where I can contribute, learn and
-              grow. If you have a good opportunity that matches my skills and
-              experience then don't hesitate to contact me.
+              {{ t('about.text5') }}
             </p>
           </div>
 
@@ -76,7 +66,7 @@
                     font-semibold uppercase tracking-wide
                     shadow-md hover:bg-blue-600 hover:shadow-lg transition"
             >
-              Get my CV
+              {{ t('about.zivljenjepis') }}
             </a>
 
             <a

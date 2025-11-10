@@ -1,3 +1,9 @@
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <section
     id="collaborations"
@@ -8,7 +14,7 @@
       <!-- Naslov -->
       <div class="text-center mb-12">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
-          COLLABORATIONS
+          {{ t('sodelovanja.title') }}
         </h2>
         <div class="mt-3 h-1 w-16 mx-auto rounded-full bg-blue-500"></div>
       </div>
@@ -49,6 +55,3 @@
   </section>
 </template>
 
-<script setup>
-// Komponenta ne potrebuje dodatne logike
-</script>

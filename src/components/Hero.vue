@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -8,29 +11,25 @@
   />
 
   <section id="hero" class="relative font-poppins">
-    <!-- Glavna vsebina heroja -->
     <div
       class="max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[90vh] px-4 text-center"
     >
-      <!-- Naslov -->
       <h1
         class="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6"
       >
-        Hey, I'm Žan!
+        {{ t('hero.titleLine1') }}
         <br />
-        Welcome to my personal
+        {{ t('hero.titleLine2') }}
         <br />
-        webpage!
+        {{ t('hero.titleLine3') }}
       </h1>
 
-      <!-- Opisni tekst -->
       <div class="space-y-2 text-base sm:text-lg text-gray-800 mb-8">
-        <p>Driven by curiosity and a need to understand how things work.</p>
-        <p>I use technology to solve problems and create value.</p>
-        <p>Every challenge is a chance to learn and build something better.</p>
+        <p>{{ t('hero.desc1') }}</p>
+        <p>{{ t('hero.desc2') }}</p>
+        <p>{{ t('hero.desc3') }}</p>
       </div>
 
-      <!-- Gumb -->
       <a
         href="#contact"
         class="inline-flex items-center justify-center
@@ -40,11 +39,10 @@
         font-semibold uppercase tracking-wide
         shadow-md hover:bg-blue-600 hover:shadow-lg transition"
       >
-        Contact
+        {{ t('hero.button') }}
       </a>
     </div>
 
-    <!-- Scroll indikator -->
     <div
       class="scroll-indicator absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none
       scale-75 sm:scale-90 md:scale-100"
@@ -55,7 +53,7 @@
       <span
         class="mt-2 text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-gray-500 select-none"
       >
-        scroll
+        {{ t('hero.scroll') }}
       </span>
     </div>
   </section>
@@ -72,7 +70,6 @@
   background-size: 24px 24px;
 }
 
-/* Scroll indikator */
 .mouse-box {
   width: 28px;
   height: 48px;
@@ -112,7 +109,6 @@
   }
 }
 
-/* 📱 dodatna prilagoditev za zelo majhne zaslone */
 @media (max-width: 400px) {
   .scroll-indicator {
     bottom: 10px;

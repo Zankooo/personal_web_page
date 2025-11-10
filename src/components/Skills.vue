@@ -1,5 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 </script>
 
 <template>
@@ -11,7 +13,7 @@
       <!-- Naslov -->
       <div class="text-center mb-12">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
-          MY SKILLS / KNOWLEDGE
+          {{ t('skills.title') }}
         </h2>
         <div class="mt-3 h-1 w-16 mx-auto rounded-full bg-blue-500"></div>
       </div>
@@ -97,7 +99,7 @@
         font-semibold uppercase tracking-wide
         hover:bg-blue-500 hover:text-white transition-colors duration-300"
         >
-        See projects!
+        {{t('skills.projekti')}}
         </a>
       </div>
 

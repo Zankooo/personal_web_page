@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const isOpen = ref(false)
 
@@ -9,6 +10,44 @@ function scrollToTop() {
     behavior: 'smooth'
   })
 }
+// ta vrstica poveze nas file i18n.js
+// t je prevajalska funkcija
+// recimo: t('nav.about')
+// messages[trenutni_jezik].nav.about
+// torej: locale.value === 'sl' ->  "O meni"
+// locale.value === 'en' -> "About Me"
+const { t, locale } = useI18n()
+
+const languages = [
+  { code: 'sl', label: 'SLO' },
+  { code: 'en', label: 'ENG' }
+]
+
+function changeLanguage(lang) {
+  locale.value = lang
+}
+
+onMounted(() => {
+  // ko se page nalozi se ta koda izvede takoj
+  // prebere iz local storage ce je kej tam
+  const saved = localStorage.getItem('locale')
+  // ce je, je ta jezik zdej v locale
+  // brez te funkcije bi se stran vedno odprla v default jeziku
+  if (saved) {
+    locale.value = saved
+  }
+  else {
+
+  }
+})
+
+// ta funkcija pa skozi opazuje spremembe vrednosti locale
+// in ko se spremeni se izvede funkcija
+// in nato nov jezik shrani v local storage
+watch(locale, (newVal) => {
+  localStorage.setItem('locale', newVal)
+})
+
 </script>
 
 <template>
@@ -18,11 +57,9 @@ function scrollToTop() {
       rel="stylesheet"
     />
 
-    <!-- Glavna vsebina -->
     <div
       class="max-w-6xl mx-auto flex items-center justify-between py-2 sm:py-3 md:py-4 px-3 sm:px-5 lg:px-8 transition-all duration-300"
     >
-      <!-- LEVA STRAN -->
       <div
         class="flex items-center space-x-2 sm:space-x-4 rounded-2xl p-1 sm:p-2 bg-white transition-colors duration-300"
       >
@@ -42,11 +79,23 @@ function scrollToTop() {
 
       <!-- DESKTOP NAV -->
       <nav class="hidden lg:flex items-center space-x-8">
-        <a href="#about" class="nav-link">About Me</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#collaborations" class="nav-link">Collaborations</a>
+        <a href="#about" class="nav-link">{{ t('nav.about') }}</a>
+        <a href="#skills" class="nav-link">{{ t('nav.skills') }}</a>
+        <a href="#collaborations" class="nav-link">{{ t('nav.collaborations') }}</a>
+        <a href="#contact" class="nav-link">{{ t('nav.contact') }}</a>
+
+        <div class="flex items-center gap-2 border-l border-gray-200 pl-4">
+          <button
+            v-for="lang in languages"
+            :key="lang.code"
+            @click="changeLanguage(lang.code)"
+            class="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.16em]"
+            :class="locale === lang.code ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500'"
+          >
+            {{ lang.label }}
+          </button>
+        </div>
         
-        <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <!-- BURGER GUMB -->
@@ -72,7 +121,7 @@ function scrollToTop() {
         <span
           class="text-xs sm:text-sm font-semibold uppercase tracking-[0.12em] sm:tracking-[0.14em]"
         >
-          Menu
+          {{ t('nav.menu') }}
         </span>
       </button>
     </div>
@@ -84,11 +133,32 @@ function scrollToTop() {
         class="lg:hidden absolute inset-x-0 top-full bg-white border-b border-gray-200 shadow-md"
       >
         <nav class="flex flex-col px-4 py-3 space-y-2 max-w-6xl mx-auto">
-          <a href="#about" class="mobile-link py-1" @click="isOpen = false">About Me</a>
-          <a href="#skills" class="mobile-link py-1" @click="isOpen = false">Skills</a>
-          <a href="#collaborations" class="mobile-link py-1" @click="isOpen = false">Collaborations</a>
-          <a href="#projects" class="mobile-link py-1" @click="isOpen = false">Projects</a>
-          <a href="#contact" class="mobile-link py-1" @click="isOpen = false">Contact</a>
+          <a href="#about" class="mobile-link py-1" @click="isOpen = false">{{ t('nav.about') }}</a>
+          <a href="#skills" class="mobile-link py-1" @click="isOpen = false">{{ t('nav.skills') }}</a>
+          <a href="#collaborations" class="mobile-link py-1" @click="isOpen = false">
+            {{ t('nav.collaborations') }}
+          </a>
+          <a href="#projects" class="mobile-link py-1" @click="isOpen = false">
+            {{ t('nav.projects') }}
+          </a>
+          <a href="#contact" class="mobile-link py-1" @click="isOpen = false">{{ t('nav.contact') }}</a>
+
+          <div class="pt-3 border-t border-gray-200 flex items-center gap-3">
+            <span class="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+              {{ t('nav.language') || 'Language' }}
+            </span>
+            <div class="flex items-center gap-2">
+              <button
+                v-for="lang in languages"
+                :key="lang.code"
+                @click="changeLanguage(lang.code); isOpen = false"
+                class="text-xs font-semibold uppercase tracking-[0.16em]"
+                :class="locale === lang.code ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500'"
+              >
+                {{ lang.label }}
+              </button>
+            </div>
+          </div>
         </nav>
       </div>
     </Transition>
