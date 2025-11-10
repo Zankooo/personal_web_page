@@ -14,13 +14,14 @@ import Skills from './components/Skills.vue';
 </script>
 
 <template>
-<Navbar />
-<Hero />
-<AboutMe />
-<Skills />
-<Collab />
-<Contact />
-<Footer />
+
+    <Navbar />
+    <Hero />
+    <AboutMe />
+    <Skills />
+    <Collab />
+    <Contact />
+    <Footer />
 
 </template>
 

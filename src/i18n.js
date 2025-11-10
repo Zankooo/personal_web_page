@@ -28,7 +28,7 @@ const messages = {
     },
   
     about: {
-      title: 'O meni',
+      title: 'O MENI',
       subtitle: 'Spoznaj me!',
       text1: 'Sem 25-letni študent računalništva, strasten glede tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Rad raziskujem, kako stvari delujejo, in svoje nekonvencionalne ideje pretvarjam v funkcionalne, elegantne digitalne rešitve.',
       text2: 'Moji interesi segajo na številna področja — od frontend in backend razvoja do oblikovanja uporabniške izkušnje (UI/UX), omrežij, avtomatizacije, AI... Uživam v ustvarjanju izkušenj, ki poenostavijo kompleksne stvari in prinašajo resnično vrednost.',
@@ -43,7 +43,23 @@ const messages = {
     },
     sodelovanja: {
       title: 'SODELOVANJA'
+    },
+    kontakt: {
+      title: 'KONTAKT',
+      nagovor: 'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na: stankovic.zan@gmail.com — odgovoril ti bom takoj, ko bo mogoče!',
+      label1: 'Ime',
+      label2: 'E-pošta',
+      label3: 'Sporočilo',
+      napis_tabela_1: 'Vnesi svoje ime',
+      napis_tabela_2: 'Vnesi svoj e-naslov',
+      napis_tabela_3: 'Vnesi svoje sporočilo',
+      gumb: 'POŠLJI'
+    },
+    footer: {
+      besedilo: "25-letni študent računalništva, strasten do tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Osredotočen na ustvarjanje čistih, funkcionalnih in uporabniku prijaznih digitalnih izkušenj, medtem ko se nenehno uči, raziskuje nove tehnologije in napreduje z vsakim projektom.",
+      linki: 'Uporabne povezave'
     }
+
     
     
   },
@@ -72,7 +88,7 @@ const messages = {
       scroll: 'scroll'
     },
     about: {
-      title: 'About Me',
+      title: 'ABOUT ME',
       subtitle: 'Get to know me!',
       text1: 'I’m a 25-year-old Computer Science student passionate about technology, creativity, and solving real-world problems through code and design.I love exploring how things work and turning unconventional ideas into functional, elegant digital solutions.',
       text2: 'My interests span multiple areas — from frontend and backend development to UI/UX design, networking, automation, AI... I enjoy creating experiences that simplify complexity and deliver real value.',
@@ -87,8 +103,22 @@ const messages = {
     },
     sodelovanja: {
       title: 'COLLABORATIONS'
+    },
+    kontakt: {
+      title: 'CONTACT',
+      nagovor: 'Feel free to contact me by submitting the form below or by reaching out directly at: stankovic.zan@gmail.com — I will reply you back as soon as possible!',
+      label1: 'Name',
+      label2: 'Email',
+      label3: 'Message',
+      napis_tabela_1: 'Enter your Name',
+      napis_tabela_2: 'Enter your Email',
+      napis_tabela_3: 'Enter your Message',
+      gumb: 'SUBMIT'
+    },
+    footer:{
+      besedilo: "A 25-year-old computer science student passionate about technology, creativity, and solving real-world problems through code and design. Focused on building clean, functional, and user-friendly digital experiences while constantly learning, exploring new technologies, and improving with every project.",
+      linki: 'Uporabne povezave'
     }
-    
     
   },
 

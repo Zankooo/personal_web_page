@@ -1,8 +1,13 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+
 function handleSubmit(event) {
   event.preventDefault();
   // tukaj lahko kasneje dodaš logiko (EmailJS, API, itd.)
 }
+
+const { t } = useI18n()
+
 </script>
 
 <template>
@@ -14,15 +19,15 @@ function handleSubmit(event) {
       <!-- Naslov -->
       <div class="text-center mb-10">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
-          CONTACT
+          {{ t('kontakt.title') }}
         </h2>
         <div class="mt-3 h-1 w-16 mx-auto rounded-full bg-blue-500"></div>
 
         <p
           class="mt-6 text-sm sm:text-base md:text-lg text-gray-800 max-w-2xl mx-auto leading-relaxed"
         >
-          Feel free to contact me by submitting the form below or by reaching out directly at
-          <span class="font-semibold">stankovic.zan@gmail.com</span> — I will reply you back as soon as possible!
+          {{ t('kontakt.nagovor') }}
+          
         </p>
       </div>
 
@@ -34,11 +39,11 @@ function handleSubmit(event) {
           <!-- Name -->
           <div class="space-y-2">
             <label class="block text-sm sm:text-base font-semibold text-gray-900">
-              Name
+              {{ t('kontakt.label1') }}
             </label>
             <input
               type="text"
-              placeholder="Enter your name"
+              :placeholder="t('kontakt.napis_tabela_1')"
               class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
@@ -46,11 +51,11 @@ function handleSubmit(event) {
           <!-- Email -->
           <div class="space-y-2">
             <label class="block text-sm sm:text-base font-semibold text-gray-900">
-              Email
+              {{ t('kontakt.label2') }}
             </label>
             <input
               type="email"
-              placeholder="Enter your Email"
+              :placeholder="t('kontakt.napis_tabela_2')"
               class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
@@ -58,11 +63,11 @@ function handleSubmit(event) {
           <!-- Message -->
           <div class="space-y-2">
             <label class="block text-sm sm:text-base font-semibold text-gray-900">
-              Message
+              {{ t('kontakt.label3') }}
             </label>
             <textarea
               rows="5"
-              placeholder="Enter your Message"
+              :placeholder="t('kontakt.napis_tabela_3')"
               class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none resize-none focus:ring-2 focus:ring-blue-400"
             ></textarea>
           </div>
@@ -79,10 +84,11 @@ function handleSubmit(event) {
             font-semibold uppercase tracking-wide
             shadow-md hover:bg-blue-600 hover:shadow-lg transition"
           >
-            Submit
+            {{ t('kontakt.gumb') }}
           </button>
         </div>
       </form>
     </div>
+    
   </section>
 </template>

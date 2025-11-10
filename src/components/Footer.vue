@@ -1,4 +1,7 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+
 const currentYear = new Date().getFullYear()
 
 // tvoje ikone
@@ -32,9 +35,7 @@ const socialLinks = [
             Žan Stanković
           </h3>
           <p class="mt-4 max-w-xl text-sm sm:text-base text-gray-300 leading-relaxed">
-            A frontend-focused web developer & computer science student, building
-            clean and user-friendly web applications with a focus on performance,
-            usability and detail.
+            {{ t('footer.besedilo') }}
           </p>
         </div>
 
@@ -43,7 +44,7 @@ const socialLinks = [
           <p
             class="text-sm font-semibold tracking-[0.16em] uppercase mb-4 text-gray-200 text-left md:text-right"
           >
-            Useful links
+            {{ t('footer.linki') }}
           </p>
 
           <div class="flex md:justify-end items-center gap-5">
