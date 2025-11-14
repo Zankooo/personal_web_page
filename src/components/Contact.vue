@@ -1,13 +1,21 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { onMounted } from 'vue'
+
+const { t, locale } = useI18n()
+
+// Debugging
+onMounted(() => {
+  console.log('Contact component mounted')
+  console.log('i18n available:', !!t)
+  console.log('Current locale:', locale.value)
+  console.log('Translation test:', t('kontakt.title'))
+})
 
 function handleSubmit(event) {
-  event.preventDefault();
+  event.preventDefault()
   // tukaj lahko kasneje dodaš logiko (EmailJS, API, itd.)
 }
-
-const { t } = useI18n()
-
 </script>
 
 <template>
