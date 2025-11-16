@@ -1,91 +1,59 @@
 const express = require("express");
 const cors = require("cors");
-const fs = require("fs");
-const path = require("path");
+const nodemailer = require("nodemailer");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-
-
-const MESSAGES_FILE = path.join(__dirname, "messages.json");
-
 app.use(cors());
 app.use(express.json());
 
-// ----------------------------------------------------------------
+// Nastavitev Nodemailer transporterja – bere podatke iz ENV spremenljivk
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT || "465", 10),
+  secure: true, // true za port 465 (TLS)
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
-app.post("/api/contact", function (request, response) {
+// POST /api/contact – frontend pošlje ime, email, sporočilo
+app.post("/api/contact", async function (request, response) {
   const { name, email, message } = request.body;
 
   if (!name || !email || !message) {
-    return response.status(400).json({ success: false, error: "Missing fields" });
+    return response
+      .status(400)
+      .json({ success: false, error: "Manjkajoča polja" });
   }
-
-  console.log("Dobil sem podatke:", request.body);
-
-  let messages = [];
-
-  if (fs.existsSync(MESSAGES_FILE)) {
-    try {
-      const fileData = fs.readFileSync(MESSAGES_FILE, "utf8");
-      if (fileData.trim() !== "") {
-        messages = JSON.parse(fileData);
-      }
-    } catch (err) {
-      console.error("Napaka pri branju datoteke:", err);
-    }
-  }
-
-  const newMessage = {
-    name,
-    email,
-    message,
-    createdAt: new Date().toISOString(),
-  };
-
-  messages.push(newMessage);
 
   try {
-    fs.writeFileSync(
-      MESSAGES_FILE,
-      JSON.stringify(messages, null, 2),
-      "utf8"
-    );
+    await transporter.sendMail({
+      from: `"Portfolio kontakt" <${process.env.SMTP_USER}>`,
+      to: process.env.TO_EMAIL || process.env.SMTP_USER,
+      replyTo: email,
+      subject: `Novo sporočilo iz kontakt obrazca od ${name}`,
+      text: `Ime: ${name}\nEmail: ${email}\n\nSporočilo:\n${message}`,
+    });
+
+    response.json({ success: true });
   } catch (err) {
-    console.error("Napaka pri pisanju datoteke:", err);
-    return res
+    console.error("Napaka pri pošiljanju emaila:", err);
+    response
       .status(500)
-      .json({ success: false, error: "Failed to save message" });
+      .json({ success: false, error: "Napaka pri pošiljanju emaila" });
   }
+});
 
-  response.json({ success: true });
+// Da imaš nekaj, če greš na root
+app.get("/", function (request, response) {
+  response.send("Backend za kontakt obrazec teče in pošilja emaile.");
 });
 
 
-app.get("/api/messages", function (request, response) {
-  let messages = [];
-
-  if (fs.existsSync(MESSAGES_FILE)) {
-    try {
-      const fileData = fs.readFileSync(MESSAGES_FILE, "utf8");
-      if (fileData.trim() !== "") {
-        messages = JSON.parse(fileData);
-      }
-    } catch (err) {
-      console.error("Napaka pri branju datoteke:", err);
-      return response
-        .status(500)
-        .json({ success: false, error: "Failed to read messages" });
-    }
-  }
-
-  response.json(messages);
-});
-
-
-
-
-app.listen(PORT, function() {
+// poslušamo na portu 
+app.listen(PORT, () => {
   console.log(`Server teče na http://localhost:${PORT}`);
 });

@@ -127,11 +127,11 @@ async function handleSubmit(event) {
         </div>
 
         <p v-if="success" class="text-green-600 text-center">
-          ✔ Sporočilo je uspešno poslano!
+          ✔ Succesfully sent!
         </p>
 
         <p v-if="error" class="text-red-600 text-center">
-          ✖ Prosimo izpolnite vsa polja.
+          ✖ Error somewhere!
         </p>
 
 

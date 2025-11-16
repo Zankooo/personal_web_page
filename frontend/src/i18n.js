@@ -46,7 +46,7 @@ const messages = {
     },
     kontakt: {
       title: 'KONTAKT',
-      nagovor: 'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na: stankovic.zan@gmail.com — odgovoril ti bom takoj, ko bo mogoče!',
+      nagovor: 'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na: stankovic.zan@gmail.com — odgovoril ti bom takoj, ko bo mogoče! (Obrazec spodaj trenutno ne deluje, zato prosim, raje na email)',
       label1: 'Ime',
       label2: 'E-pošta',
       label3: 'Sporočilo',
@@ -106,7 +106,7 @@ const messages = {
     },
     kontakt: {
       title: 'CONTACT',
-      nagovor: 'Feel free to contact me by submitting the form below or by reaching out directly at: stankovic.zan@gmail.com — I will reply you back as soon as possible!',
+      nagovor: 'Feel free to contact me by submitting the form below or by reaching out directly at: stankovic.zan@gmail.com — I will reply you back as soon as possible! (Form below currently not working, so pls write an email)',
       label1: 'Name',
       label2: 'Email',
       label3: 'Message',

@@ -35,6 +35,8 @@ This project was built with:
 - 🚀 **Vite** (development server & bundler)  
 - 🎨 **Tailwind CSS** (styling)
 
+- DEPLOYMENT DELA, MAIN -> VERCEL FRONTNEND IN BACKEND RENDER -> ŠE MALO POGLEDAT VSE SKUPAJ
+
 ## 🖥 Run the Project Locally
 
 To run this project locally:
