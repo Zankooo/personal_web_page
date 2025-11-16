@@ -56,6 +56,7 @@ To run this project locally:
 ## 🔜 Future updates
 - my picture
 - projects
+- contact worked
 - collab
   - what i was doing?
   - what i learnt there?
