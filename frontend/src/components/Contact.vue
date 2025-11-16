@@ -31,7 +31,7 @@ async function handleSubmit(event) {
   // probamo tole, torej poslati na backend
   try {
     // naredi http zahtevo na backend
-    const response = await fetch("http://localhost:4000/api/contact", {
+    const res = await fetch("https://personal-web-page-backend.onrender.com/api/contact", {
       //post ker posiljamo podatke
       method: "POST",
       // povemo da posiljamo json
