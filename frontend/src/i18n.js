@@ -117,7 +117,7 @@ const messages = {
     },
     footer:{
       besedilo: "A 25-year-old computer science student passionate about technology, creativity, and solving real-world problems through code and design. Focused on building clean, functional, and user-friendly digital experiences while constantly learning, exploring new technologies, and improving with every project.",
-      linki: 'Uporabne povezave'
+      linki: 'Useful links'
     }
     
   },

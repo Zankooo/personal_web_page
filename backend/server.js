@@ -4,7 +4,8 @@ const fs = require("fs");
 const path = require("path");
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
+
 
 const MESSAGES_FILE = path.join(__dirname, "messages.json");
 
@@ -61,9 +62,13 @@ app.post("/api/contact", function (request, response) {
 });
 
 
+app.get("/", function (request, response) {
+  response.send("Backend teče. Uporabi /api/contact za pošiljanje sporočil.");
+});
 
 
 
-app.listen(PORT, () => {
+
+app.listen(PORT, function() {
   console.log(`Server teče na http://localhost:${PORT}`);
 });
