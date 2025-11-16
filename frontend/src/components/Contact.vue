@@ -15,28 +15,20 @@ const error = ref(false)
 
 // 🔹 Submit handler
 async function handleSubmit(event) {
-  // preprečimo reload strani -> brez tega bi stran blisknila in zbrisala inpute
-  event.preventDefault()   
+  event.preventDefault()
 
-  // feedback uporabniku
   success.value = false
   error.value = false
 
-  // Validacija minimalna -> če je kej pozabil ga opomne, preden posljemo na server
   if (!name.value || !email.value || !message.value) {
     error.value = true
     return
   }
 
-  // probamo tole, torej poslati na backend
   try {
-    // naredi http zahtevo na backend
     const res = await fetch("https://personal-web-page-backend.onrender.com/api/contact", {
-      //post ker posiljamo podatke
       method: "POST",
-      // povemo da posiljamo json
       headers: { "Content-Type": "application/json" },
-      // dejanski podatki
       body: JSON.stringify({
         name: name.value,
         email: email.value,
@@ -44,10 +36,8 @@ async function handleSubmit(event) {
       })
     })
 
-    // shranimo odgovor od backenda
-    const data = await response.json()
+    const data = await res.json()
 
-    // če je vse okej, se tole izvede
     if (data.success) {
       success.value = true
       name.value = ""
@@ -56,11 +46,12 @@ async function handleSubmit(event) {
     } else {
       error.value = true
     }
-    // če pride do napake
   } catch (e) {
+    console.error(e)
     error.value = true
   }
 }
+
 </script>
 
 
