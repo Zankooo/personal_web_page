@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 
+
 const MESSAGES_FILE = path.join(__dirname, "messages.json");
 
 app.use(cors());
@@ -62,8 +63,24 @@ app.post("/api/contact", function (request, response) {
 });
 
 
-app.get("/", function (request, response) {
-  response.send("Backend teče. Uporabi /api/contact za pošiljanje sporočil.");
+app.get("/api/messages", function (request, response) {
+  let messages = [];
+
+  if (fs.existsSync(MESSAGES_FILE)) {
+    try {
+      const fileData = fs.readFileSync(MESSAGES_FILE, "utf8");
+      if (fileData.trim() !== "") {
+        messages = JSON.parse(fileData);
+      }
+    } catch (err) {
+      console.error("Napaka pri branju datoteke:", err);
+      return response
+        .status(500)
+        .json({ success: false, error: "Failed to read messages" });
+    }
+  }
+
+  response.json(messages);
 });
 
 
