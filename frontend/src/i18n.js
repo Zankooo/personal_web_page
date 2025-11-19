@@ -1,7 +1,5 @@
 // src/i18n.js
 import { createI18n } from 'vue-i18n'
-// FILE Z BESEDILOM ZA VSE KOMPONENTE V OBEH JEZIKIH
-
 
 const messages = {
   sl: {
@@ -26,7 +24,7 @@ const messages = {
       button: 'Kontakt',
       scroll: 'scroll'
     },
-  
+
     about: {
       title: 'O MENI',
       subtitle: 'Spoznaj me!',
@@ -46,25 +44,27 @@ const messages = {
     },
     kontakt: {
       title: 'KONTAKT',
-      nagovor: 'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na: stankovic.zan@gmail.com — odgovoril ti bom takoj, ko bo mogoče! (Obrazec spodaj trenutno ne deluje, zato prosim, raje na email)',
+      // poenostavljen tekst, brez oklepajev – da ne zmede i18n parserja
+      nagovor:
+        'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na e-naslov stankovic.zan@gmail.com. Odgovoril ti bom takoj, ko bo mogoče.',
       label1: 'Ime',
       label2: 'E-pošta',
       label3: 'Sporočilo',
       napis_tabela_1: 'Vnesi svoje ime',
       napis_tabela_2: 'Vnesi svoj e-naslov',
       napis_tabela_3: 'Vnesi svoje sporočilo',
-      gumb: 'POŠLJI'
+      gumb: 'POŠLJI',
+      success: 'Sporočilo je bilo uspešno poslano.',
+      error: 'Prišlo je do napake. Prosimo, poskusi znova.'
     },
     footer: {
-      besedilo: "25-letni študent računalništva, strasten do tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Osredotočen na ustvarjanje čistih, funkcionalnih in uporabniku prijaznih digitalnih izkušenj, medtem ko se nenehno uči, raziskuje nove tehnologije in napreduje z vsakim projektom.",
+      besedilo:
+        '25-letni študent računalništva, strasten do tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Osredotočen na ustvarjanje čistih, funkcionalnih in uporabniku prijaznih digitalnih izkušenj, medtem ko se nenehno uči, raziskuje nove tehnologije in napreduje z vsakim projektom.',
       linki: 'Uporabne povezave'
     }
-
-    
-    
   },
 
-// ----------------- ----------------- -----------------
+  // ----------------- EN -----------------
   en: {
     nav: {
       about: 'About Me',
@@ -90,7 +90,7 @@ const messages = {
     about: {
       title: 'ABOUT ME',
       subtitle: 'Get to know me!',
-      text1: 'I’m a 25-year-old Computer Science student passionate about technology, creativity, and solving real-world problems through code and design.I love exploring how things work and turning unconventional ideas into functional, elegant digital solutions.',
+      text1: 'I’m a 25-year-old Computer Science student passionate about technology, creativity, and solving real-world problems through code and design. I love exploring how things work and turning unconventional ideas into functional, elegant digital solutions.',
       text2: 'My interests span multiple areas — from frontend and backend development to UI/UX design, networking, automation, AI... I enjoy creating experiences that simplify complexity and deliver real value.',
       text3: 'Currently, I’m sharpening my skills in modern frontend frameworks and preparing for the CCNA certification to deepen my understanding of computer networks.',
       text4: 'All in all, I’m always learning — experimenting with new technologies, refining my workflows, meeting new people, and broadening my perspective with every new experience.',
@@ -106,27 +106,29 @@ const messages = {
     },
     kontakt: {
       title: 'CONTACT',
-      nagovor: 'Feel free to contact me by submitting the form below or by reaching out directly at: stankovic.zan@gmail.com — I will reply you back as soon as possible! (Form below currently not working, so pls write an email)',
+      nagovor:
+        'Feel free to contact me by submitting the form below or by reaching out directly at stankovic.zan@gmail.com. I will reply as soon as possible.',
       label1: 'Name',
       label2: 'Email',
       label3: 'Message',
       napis_tabela_1: 'Enter your Name',
       napis_tabela_2: 'Enter your Email',
       napis_tabela_3: 'Enter your Message',
-      gumb: 'SUBMIT'
+      gumb: 'SUBMIT',
+      success: 'Your message has been sent successfully.',
+      error: 'Something went wrong. Please try again.'
     },
-    footer:{
-      besedilo: "A 25-year-old computer science student passionate about technology, creativity, and solving real-world problems through code and design. Focused on building clean, functional, and user-friendly digital experiences while constantly learning, exploring new technologies, and improving with every project.",
+    footer: {
+      besedilo:
+        'A 25-year-old computer science student passionate about technology, creativity, and solving real-world problems through code and design. Focused on building clean, functional, and user-friendly digital experiences while constantly learning, exploring new technologies, and improving with every project.',
       linki: 'Useful links'
     }
-    
   },
-
 }
 
 export const i18n = createI18n({
   legacy: false,
   locale: 'sl',
   fallbackLocale: 'en',
-  messages
+  messages,
 })

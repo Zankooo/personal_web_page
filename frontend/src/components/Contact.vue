@@ -1,22 +1,17 @@
 <script setup>
-import { useI18n } from 'vue-i18n'
-import { ref } from 'vue'
+import { useI18n } from "vue-i18n"
+import { ref } from "vue"
 
 const { t, locale } = useI18n()
 
-// 🔹 Form state
 const name = ref("")
 const email = ref("")
 const message = ref("")
 
-// 🔹 Feedback
 const success = ref(false)
 const error = ref(false)
 
-// 🔹 Submit handler
-async function handleSubmit(event) {
-  event.preventDefault()
-
+async function handleSubmit() {
   success.value = false
   error.value = false
 
@@ -26,19 +21,26 @@ async function handleSubmit(event) {
   }
 
   try {
-    const res = await fetch("https://personal-web-page-backend.onrender.com/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name.value,
-        email: email.value,
-        message: message.value
-      })
-    })
+    const res = await fetch("http://localhost:4000/api/contact",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          message: message.value,
+        }),
+      }
+    )
+
+    if (!res.ok) {
+      error.value = true
+      return
+    }
 
     const data = await res.json()
 
-    if (data.success) {
+    if (data && data.success) {
       success.value = true
       name.value = ""
       email.value = ""
@@ -51,56 +53,46 @@ async function handleSubmit(event) {
     error.value = true
   }
 }
-
 </script>
 
-
 <template>
-
   <section
     id="contact"
     class="bg-[#e5f1f9] min-h-screen flex flex-col justify-center font-poppins py-16"
   >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <!-- Naslov -->
       <div class="text-center mb-10">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
-          {{ t('kontakt.title') }}
+          {{ t("kontakt.title") }}
         </h2>
         <div class="mt-3 h-1 w-16 mx-auto rounded-full bg-blue-500"></div>
 
         <p
           class="mt-6 text-sm sm:text-base md:text-lg text-gray-800 max-w-2xl mx-auto leading-relaxed"
         >
-          {{ t('kontakt.nagovor') }}
-          
+          {{ t("kontakt.nagovor") }}
         </p>
       </div>
 
-      <!-- Form “karta” -->
-      <form @submit="handleSubmit" class="space-y-8">
+      <form @submit.prevent="handleSubmit" class="space-y-8">
         <div
           class="bg-[#dedede] rounded-[2.5rem] px-6 sm:px-10 py-8 sm:py-10 shadow-md shadow-gray-300 space-y-6"
         >
-
-          <!-- Name -->
           <div class="space-y-2">
             <label class="block text-sm sm:text-base font-semibold text-gray-900">
-              {{ t('kontakt.label1') }}
+              {{ t("kontakt.label1") }}
             </label>
             <input
               v-model="name"
               type="text"
               :placeholder="t('kontakt.napis_tabela_1')"
               class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-blue-400"
-              />
+            />
           </div>
 
-
-          <!-- Email -->
           <div class="space-y-2">
             <label class="block text-sm sm:text-base font-semibold text-gray-900">
-              {{ t('kontakt.label2') }}
+              {{ t("kontakt.label2") }}
             </label>
             <input
               v-model="email"
@@ -110,11 +102,9 @@ async function handleSubmit(event) {
             />
           </div>
 
-
-          <!-- Message -->
           <div class="space-y-2">
             <label class="block text-sm sm:text-base font-semibold text-gray-900">
-              {{ t('kontakt.label3') }}
+              {{ t("kontakt.label3") }}
             </label>
             <textarea
               v-model="message"
@@ -123,19 +113,17 @@ async function handleSubmit(event) {
               class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none resize-none focus:ring-2 focus:ring-blue-400"
             ></textarea>
           </div>
-
         </div>
 
         <p v-if="success" class="text-green-600 text-center">
-          ✔ Succesfully sent!
+          ✔ {{ t('kontakt.success') }}
         </p>
 
         <p v-if="error" class="text-red-600 text-center">
-          ✖ Error somewhere!
+          ✖ {{ t('kontakt.error') }}
         </p>
 
 
-        <!-- Submit gumb -->
         <div class="flex justify-center">
           <button
             type="submit"
@@ -146,13 +134,10 @@ async function handleSubmit(event) {
             font-semibold uppercase tracking-wide
             shadow-md hover:bg-blue-600 hover:shadow-lg transition"
           >
-            {{ t('kontakt.gumb') }}
+            {{ t("kontakt.gumb") }}
           </button>
         </div>
       </form>
     </div>
-    
   </section>
-
-
 </template>
