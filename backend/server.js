@@ -1,6 +1,8 @@
+// backend/index.js
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -8,52 +10,44 @@ const PORT = process.env.PORT || 4000;
 app.use(cors());
 app.use(express.json());
 
-// Nastavitev Nodemailer transporterja – bere podatke iz ENV spremenljivk
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || "465", 10),
-  secure: true, // true za port 465 (TLS)
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
+// inicializacija Resend API-ja
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// healthcheck
+app.get("/", (req, res) => {
+  res.send("Backend za kontaktni obrazec deluje (Resend verzija).");
 });
 
-// POST /api/contact – frontend pošlje ime, email, sporočilo
-app.post("/api/contact", async function (request, response) {
-  const { name, email, message } = request.body;
+app.post("/api/contact", async (req, res) => {
+  const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return response
-      .status(400)
-      .json({ success: false, error: "Manjkajoča polja" });
+    return res.status(400).json({ success: false, error: "Missing fields" });
   }
 
   try {
-    await transporter.sendMail({
-      from: `"Portfolio kontakt" <${process.env.SMTP_USER}>`,
-      to: process.env.TO_EMAIL || process.env.SMTP_USER,
-      replyTo: email,
-      subject: `Novo sporočilo iz kontakt obrazca od ${name}`,
-      text: `Ime: ${name}\nEmail: ${email}\n\nSporočilo:\n${message}`,
+    // pošlji email
+    await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
+      to: process.env.MAIL_TO,
+      subject: "Novo sporočilo iz kontaktnega obrazca",
+      text: `Ime: ${name}
+    Email: ${email}
+
+    Sporočilo:
+    ${message}
+    `,
+      reply_to: email,
     });
 
-    response.json({ success: true });
-  } catch (err) {
-    console.error("Napaka pri pošiljanju emaila:", err);
-    response
-      .status(500)
-      .json({ success: false, error: "Napaka pri pošiljanju emaila" });
+    console.log("Email poslan prek Resend.");
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Resend napaka:", error);
+    res.status(500).json({ success: false, error: "Sending failed" });
   }
 });
 
-// Da imaš nekaj, če greš na root
-app.get("/", function (request, response) {
-  response.send("Backend za kontakt obrazec teče in pošilja emaile.");
-});
-
-
-// poslušamo na portu 
 app.listen(PORT, () => {
   console.log(`Server teče na http://localhost:${PORT}`);
 });
