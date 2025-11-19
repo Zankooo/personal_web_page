@@ -29,13 +29,16 @@ https://personalwebpage-tau.vercel.app/
 
 ## 🛠 Technologies Used
 
-This project was built with:
+This project was almost entirely build with just frontend tech:
 
 - ⚙️ **Vue 3**  
 - 🚀 **Vite** (development server & bundler)  
 - 🎨 **Tailwind CSS** (styling)
 
-- DEPLOYMENT DELA, MAIN -> VERCEL FRONTNEND IN BACKEND RENDER -> ŠE MALO POGLEDAT VSE SKUPAJ
+Deployment:
+- frontend deployment is made in Vercel,
+- backend deployment is made in Render.
+
 
 ## 🖥 Run the Project Locally
 
@@ -58,9 +61,9 @@ To run this project locally:
 ## 🔜 Future updates
 - my picture
 - projects
-- contact worked
+- contact -> da dela da pošiljaš maile, oziroma da uporabim neko enostavno bazo kjer zapisuje v json recimo notri
 - collab
   - what i was doing?
   - what i learnt there?
-  - which results i achieved?
+  - which results I achieved?
   - . . .
