@@ -1,25 +1,10 @@
 # 🌐 Personal Portfolio Website 
+[🇸🇮 Preberi v slovenščini](./slo-readme/README.md)
 
 ## 🎯 Purpose
 This website serves as my **personal portfolio and digital business card**.  
 It brings together key information about me, my skills, past collaborations, and ways to get in touch.  
 
-
-## 📂 Website Sections
-
-The website includes the following main sections:
-
-- **Personal Information**  
-  A short introduction about who I am, my background, and what drives me.
-
-- **Skills**  
-  A list of technologies, tools, and areas I’m experienced in — such as programming, video production, and web projects.
-
-- **Collaborations**  
-  Brands, companies, and projects I’ve worked with or contributed to.
-
-- **Contact**  
-  A simple contact form and details for reaching out about potential collaborations.
 
 ## 🌐 Live Website
 
@@ -36,14 +21,13 @@ This project was almost entirely build with just frontend tech:
 - Integriran Resend kot e-mail storitev za pošiljanje sporočil iz kontaktnega obrazca.
 
 
-
 ## 🖥 Run the Project Locally
 
 To run this project locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Zankooo/zan-web-page.git
+   git clone https://github.com/Zankooo/personal_web_page.git
 2. Install node_modules:
    ```bash
    npm install
