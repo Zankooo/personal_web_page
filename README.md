@@ -31,13 +31,10 @@ https://personalwebpage-tau.vercel.app/
 
 This project was almost entirely build with just frontend tech:
 
-- ⚙️ **Vue 3**  
-- 🚀 **Vite** (development server & bundler)  
-- 🎨 **Tailwind CSS** (styling)
+- Frontend aplikacija zgrajena z Vue in deployana na Vercel.
+- Backend API implementiran v Express (Node.js) in deployan na Render.
+- Integriran Resend kot e-mail storitev za pošiljanje sporočil iz kontaktnega obrazca.
 
-Deployment:
-- frontend deployment is made in Vercel,
-- backend deployment is made in Render.
 
 
 ## 🖥 Run the Project Locally
