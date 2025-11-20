@@ -6,10 +6,6 @@
 Ta spletna stran predstavlja moj **osebni portfolio in digitalno vizitko**.  
 Na enem mestu združuje ključne informacije o meni, mojih znanjih, preteklih sodelovanjih in načinih, kako stopiti v stik z mano.
 
-## 📂 Glavni razdelki spletne strani
-
-Spletna stran vključuje naslednje glavne sekcije:
-
 
 ## 🌐 Delujoča spletna stran
 
