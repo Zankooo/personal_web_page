@@ -21,23 +21,36 @@ This project was almost entirely build with just frontend tech:
 - Integriran Resend kot e-mail storitev za pošiljanje sporočil iz kontaktnega obrazca.
 
 
-## 🖥 Run the Project Locally
+## 🖥 Run the Project Locally (Frontend)
 
 To run this project locally:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Zankooo/personal_web_page.git
-2. Install node_modules:
+1. Install node_modules:
    ```bash
    npm install
-3. Run :
+2. Run :
    ```bash
    npm run dev
-4. Open in browser (probably this link under - or the one which is shown when you type npm run dev)
+3. Open in browser (probably this link under - or the one which is shown when you type npm run dev)
    ```bash
    http://localhost:5173
 ---
+
+## 🖥 Run the Project Locally (Backend)
+
+To run this project locally:
+
+1. Install node_modules:
+   ```bash
+   npm install
+2. Run :
+   ```bash
+   npm start (or npm server.js)
+3. Open in browser (probably this link under - or the one which is shown when you type npm run dev)
+   ```bash
+   http://localhost:4000
+---
+
 
 ## 🔜 Future updates
 - my picture

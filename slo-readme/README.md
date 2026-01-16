@@ -20,23 +20,33 @@ Ta projekt je skoraj v celoti zgrajen z uporabo frontenda:
 - Backend API je implementiran v Express (Node.js) in deployan na Render.
 - Resend je integriran kot e-mail storitev za pošiljanje sporočil iz kontaktnega obrazca.
 
-## 🖥 Lokalno zaganjanje projekta
+## 🖥 Lokalno zaganjanje projekta (Frontend)
 
 Za lokalni zagon projekta:
 
-1. Klonirajte repozitorij:
-   ```bash
-   git clone https://github.com/Zankooo/zan-web-page.git
-2. Namestite odvisnosti:
+1. Namestite odvisnosti:
    ```bash
    npm install
-3. Zaženite projekt:
+2. Zaženite projekt:
    ```bash
    npm run dev
-4. Odprite v brskalniku (verjetno ta povezava ali tista, ki se izpiše po ukazu `npm run dev`):
+3. Odprite v brskalniku (verjetno ta povezava ali tista, ki se izpiše po ukazu `npm run dev`):
    ```bash
    http://localhost:5173
 ---
+## 🖥 Lokalno zaganjanje projekta (Backend)
+
+1. Namestite odvisnosti:
+   ```bash
+   npm install
+2. Zaženite projekt:
+   ```bash
+   npm start (ali npm server.js)
+3. Odprite v brskalniku:
+   ```bash
+   http://localhost:4000
+---
+
 
 ## 🔜 Prihodnje posodobitve
 - moja slika
