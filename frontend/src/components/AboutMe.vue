@@ -57,7 +57,7 @@ const { t } = useI18n()
             class="mt-10 flex flex-wrap gap-3 justify-center lg:justify-start"
           >
             <a
-              href="/generalen-cv.pdf"
+              href="cv.pdf"
               download="Zan-Stankovic-CV.pdf"
               class="inline-flex items-center justify-center
                     px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
@@ -88,14 +88,16 @@ const { t } = useI18n()
         <!-- DESNA STRAN – slika -->
         <div class="flex flex-col items-center lg:items-end space-y-3 -mt-4">
           <div
-            class="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 rounded-[2.5rem] overflow-hidden shadow-md bg-gray-200"
-          >
-            <img
-              src="@/assets/ludi-zan.jpg"
-              alt="Žan avatar"
-              class="w-full h-full object-cover"
-            />
-          </div>
+              class="w-40 sm:w-52 md:w-64 lg:w-72 aspect-[3/4] rounded-2xl overflow-hidden shadow-sm bg-gray-200"
+            >
+              <img
+                src="@/assets/ludi-zan.jpg"
+                alt="Žan avatar"
+                class="w-full h-full object-cover object-[50%_65%]"
+              />
+            </div>
+
+
         </div>
       </div>
     </div>

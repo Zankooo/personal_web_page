@@ -13,6 +13,7 @@ app.use(express.json());
 // inicializacija Resend API-ja
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+
 // healthcheck
 app.get("/", (req, res) => {
   res.send("Backend za kontaktni obrazec deluje (Resend verzija).");
@@ -20,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
-
+  
   if (!name || !email || !message) {
     return res.status(400).json({ success: false, error: "Missing fields" });
   }
@@ -32,17 +33,18 @@ app.post("/api/contact", async (req, res) => {
       to: process.env.MAIL_TO,
       subject: "Novo sporočilo iz kontaktnega obrazca",
       text: `Ime: ${name}
-    Email: ${email}
+      Email: ${email}
 
-    Sporočilo:
-    ${message}
-    `,
-      reply_to: email,
-    });
+      Sporočilo:
+      ${message}
+      `,
+        reply_to: email,
+      });
 
-    console.log("Email poslan prek Resend.");
-    res.json({ success: true });
-  } catch (error) {
+      console.log("Email poslan prek Resend.");
+      res.json({ success: true });
+    } 
+    catch (error) {
     console.error("Resend napaka:", error);
     res.status(500).json({ success: false, error: "Sending failed" });
   }
