@@ -44,9 +44,11 @@ const messages = {
     },
     kontakt: {
       title: 'KONTAKT',
-      // poenostavljen tekst, brez oklepajev – da ne zmede i18n parserja
-      nagovor:
-        'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na e-naslov stankovic.zan@gmail.com. Odgovoril ti bom takoj, ko bo mogoče.',
+      // poenostavljen tekst v dveh delih
+      nagovor_prvi_del:
+        'Lahko me kontaktiraš tako, da izpolniš spodnji obrazec ali mi pišeš neposredno na e-naslov: ',
+      nagovor_drugi_del: 'Odgovoril ti bom takoj, ko bo mogoče.',
+
       label1: 'Ime',
       label2: 'E-pošta',
       label3: 'Sporočilo',
@@ -106,8 +108,11 @@ const messages = {
     },
     kontakt: {
       title: 'CONTACT',
-      nagovor:
-        'Feel free to contact me by submitting the form below or by reaching out directly at stankovic.zan@gmail.com. I will reply as soon as possible.',
+      // enako razbito kot pri sl
+      nagovor_prvi_del:
+        'You can contact me by filling out the form below or by writing directly to my email address: ',
+      nagovor_drugi_del: 'I will get back to you as soon as possible.',
+
       label1: 'Name',
       label2: 'Email',
       label3: 'Message',

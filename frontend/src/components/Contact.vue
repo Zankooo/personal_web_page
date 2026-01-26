@@ -70,7 +70,13 @@ async function handleSubmit() {
         <p
           class="mt-6 text-sm sm:text-base md:text-lg text-gray-800 max-w-2xl mx-auto leading-relaxed"
         >
-          {{ t("kontakt.nagovor") }}
+          {{ t("kontakt.nagovor_prvi_del") }}
+          <a href="mailto:stankovic.zan@gmail.com" style="
+              text-decoration: underline;
+              font-weight: 500;
+              color: #2563eb;
+              cursor: pointer;">stankovic.zan@gmail.com</a>.
+          {{ t("kontakt.nagovor_drugi_del") }}
         </p>
       </div>
 
