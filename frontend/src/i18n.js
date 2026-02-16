@@ -28,7 +28,7 @@ const messages = {
     about: {
       title: 'O MENI',
       subtitle: 'Spoznaj me!',
-      text1: 'Sem 25-letni študent računalništva, strasten glede tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Rad raziskujem, kako stvari delujejo, in svoje nekonvencionalne ideje pretvarjam v funkcionalne, elegantne digitalne rešitve.',
+      text1: 'Sem 26-letni študent računalništva, strasten glede tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Rad raziskujem, kako stvari delujejo, in svoje nekonvencionalne ideje pretvarjam v funkcionalne, elegantne digitalne rešitve.',
       text2: 'Moji interesi segajo na številna področja — od frontend in backend razvoja do oblikovanja uporabniške izkušnje (UI/UX), omrežij, avtomatizacije, AI... Uživam v ustvarjanju izkušenj, ki poenostavijo kompleksne stvari in prinašajo resnično vrednost.',
       text3: 'Trenutno izpopolnjujem svoje znanje sodobnih frontend ogrodij in se pripravljam na pridobitev certifikata CCNA, da poglobim svoje razumevanje računalniških omrežij.',
       text4: 'Na koncu koncev sem vedno v procesu učenja — preizkušam nove tehnologije, izpopolnjujem svoje delovne procese, spoznavam nove ljudi in z vsako izkušnjo širim svoja obzorja.',
@@ -92,7 +92,7 @@ const messages = {
     about: {
       title: 'ABOUT ME',
       subtitle: 'Get to know me!',
-      text1: 'I’m a 25-year-old Computer Science student passionate about technology, creativity, and solving real-world problems through code and design. I love exploring how things work and turning unconventional ideas into functional, elegant digital solutions.',
+      text1: 'I’m a 26-year-old Computer Science student passionate about technology, creativity, and solving real-world problems through code and design. I love exploring how things work and turning unconventional ideas into functional, elegant digital solutions.',
       text2: 'My interests span multiple areas — from frontend and backend development to UI/UX design, networking, automation, AI... I enjoy creating experiences that simplify complexity and deliver real value.',
       text3: 'Currently, I’m sharpening my skills in modern frontend frameworks and preparing for the CCNA certification to deepen my understanding of computer networks.',
       text4: 'All in all, I’m always learning — experimenting with new technologies, refining my workflows, meeting new people, and broadening my perspective with every new experience.',
