@@ -11,6 +11,15 @@ import Skills from './components/Skills.vue';
 // in isto iphone se, slika je preveč dol
 // in tudi na iphone pro max je slika preveč dol
 // na desktop kompu je pa super
+
+
+// tole je single page website zato ni potrebno ogrodja za celo spletno stran 
+// tako kot je to narejeno pri index vs stanovanja
+// sploh ni vue-router
+
+// za single page spletno stran je tole okej, vendar za vec strani:
+// definitivno boljse da je app.vue ogrodje 
+
 </script>
 
 <template>
