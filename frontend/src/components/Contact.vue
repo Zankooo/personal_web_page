@@ -2,7 +2,7 @@
 import { useI18n } from "vue-i18n"
 import { ref } from "vue"
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 
 const name = ref("")
 const email = ref("")
@@ -10,8 +10,11 @@ const message = ref("")
 
 const success = ref(false)
 const error = ref(false)
+const isSubmitting = ref(false)
 
 async function handleSubmit() {
+  if (isSubmitting.value) return
+
   success.value = false
   error.value = false
 
@@ -19,6 +22,8 @@ async function handleSubmit() {
     error.value = true
     return
   }
+
+  isSubmitting.value = true
 
   try {
     const res = await fetch("https://personal-web-page-backend.onrender.com/api/contact",
@@ -51,6 +56,8 @@ async function handleSubmit() {
   } catch (e) {
     console.error(e)
     error.value = true
+  } finally {
+    isSubmitting.value = false
   }
 }
 </script>
@@ -58,92 +65,94 @@ async function handleSubmit() {
 <template>
   <section
     id="contact"
-    class="bg-[#e5f1f9] min-h-screen flex flex-col justify-center font-poppins py-16"
+    class="bg-[#eee7dc] min-h-screen flex flex-col justify-center py-20 sm:py-24"
   >
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <p class="section-kicker">
+          Availability
+        </p>
+        <h2 class="section-title">
           {{ t("kontakt.title") }}
         </h2>
-        <div class="mt-3 h-1 w-16 mx-auto rounded-full bg-blue-500"></div>
+        <div class="section-rule"></div>
 
         <p
-          class="mt-6 text-sm sm:text-base md:text-lg text-gray-800 max-w-2xl mx-auto leading-relaxed"
+          class="mt-7 text-sm sm:text-base text-[#4f4a43] max-w-xl leading-8"
         >
           {{ t("kontakt.nagovor_prvi_del") }}
-          <a href="mailto:stankovic.zan@gmail.com" style="
-              text-decoration: underline;
-              font-weight: 500;
-              color: #2563eb;
-              cursor: pointer;">stankovic.zan@gmail.com</a>.
+          <a href="mailto:stankovic.zan@gmail.com" class="font-semibold text-[#8f6c35] underline decoration-[#b08a4a]/50 underline-offset-4">stankovic.zan@gmail.com</a>.
           {{ t("kontakt.nagovor_drugi_del") }}
         </p>
       </div>
 
-      <form @submit.prevent="handleSubmit" class="space-y-8">
+      <form @submit.prevent="handleSubmit" class="space-y-7">
         <div
-          class="bg-[#dedede] rounded-[2.5rem] px-6 sm:px-10 py-8 sm:py-10 shadow-md shadow-gray-300 space-y-6"
+          class="premium-surface relative overflow-hidden px-5 sm:px-8 py-7 sm:py-9 space-y-6"
         >
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8c29a] to-transparent"></div>
           <div class="space-y-2">
-            <label class="block text-sm sm:text-base font-semibold text-gray-900">
+            <label class="block text-xs font-semibold uppercase tracking-[0.18em] text-[#6f5a34]">
               {{ t("kontakt.label1") }}
             </label>
             <input
               v-model="name"
               type="text"
               :placeholder="t('kontakt.napis_tabela_1')"
-              class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-blue-400"
+              class="w-full border border-[#d8c29a]/55 bg-white/70 px-4 py-3 text-sm sm:text-base text-[#171512] outline-none transition placeholder:text-[#8b857b] focus:border-[#b08a4a] focus:ring-2 focus:ring-[#d8c29a]/50"
             />
           </div>
 
           <div class="space-y-2">
-            <label class="block text-sm sm:text-base font-semibold text-gray-900">
+            <label class="block text-xs font-semibold uppercase tracking-[0.18em] text-[#6f5a34]">
               {{ t("kontakt.label2") }}
             </label>
             <input
               v-model="email"
               type="email"
               :placeholder="t('kontakt.napis_tabela_2')"
-              class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none focus:ring-2 focus:ring-blue-400"
+              class="w-full border border-[#d8c29a]/55 bg-white/70 px-4 py-3 text-sm sm:text-base text-[#171512] outline-none transition placeholder:text-[#8b857b] focus:border-[#b08a4a] focus:ring-2 focus:ring-[#d8c29a]/50"
             />
           </div>
 
           <div class="space-y-2">
-            <label class="block text-sm sm:text-base font-semibold text-gray-900">
+            <label class="block text-xs font-semibold uppercase tracking-[0.18em] text-[#6f5a34]">
               {{ t("kontakt.label3") }}
             </label>
             <textarea
               v-model="message"
               rows="5"
               :placeholder="t('kontakt.napis_tabela_3')"
-              class="w-full bg-white rounded-md px-4 py-3 text-sm sm:text-base outline-none resize-none focus:ring-2 focus:ring-blue-400"
+              class="w-full border border-[#d8c29a]/55 bg-white/70 px-4 py-3 text-sm sm:text-base text-[#171512] outline-none resize-none transition placeholder:text-[#8b857b] focus:border-[#b08a4a] focus:ring-2 focus:ring-[#d8c29a]/50"
             ></textarea>
           </div>
         </div>
 
-        <p v-if="success" class="text-green-600 text-center">
-          ✔ {{ t('kontakt.success') }}
+        <p v-if="success" class="text-[#2f7d46] text-sm">
+          {{ t('kontakt.success') }}
         </p>
 
-        <p v-if="error" class="text-red-600 text-center">
-          ✖ {{ t('kontakt.error') }}
+        <p v-if="error" class="text-[#a33b2f] text-sm">
+          {{ t('kontakt.error') }}
+        </p>
+
+        <p v-if="isSubmitting" class="text-[#6f5a34] text-sm">
+          {{ t('kontakt.sending') }}
         </p>
 
 
-        <div class="flex justify-center">
+        <div class="flex">
           <button
             type="submit"
-            class="inline-flex items-center justify-center
-            px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
-            rounded-xl bg-blue-500 text-white
-            text-xs sm:text-sm md:text-base
-            font-semibold uppercase tracking-wide
-            shadow-md hover:bg-blue-600 hover:shadow-lg transition"
+            :disabled="isSubmitting"
+            class="premium-button disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0"
           >
-            {{ t("kontakt.gumb") }}
+            {{ isSubmitting ? t("kontakt.sendingButton") : t("kontakt.gumb") }}
           </button>
         </div>
       </form>
+      </div>
     </div>
   </section>
 </template>

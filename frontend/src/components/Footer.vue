@@ -20,29 +20,26 @@ const socialLinks = [
 </script>
 
 <template>
-  <footer class="bg-black text-white pt-14 pb-8">
-    <div class="max-w-6xl mx-auto px-4">
-      <!-- Zgornji del -->
+  <footer class="bg-[#1f2420] text-white pt-14 pb-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div
         class="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 md:gap-16"
       >
-        <!-- Levo: ime in opis -->
         <div>
           <h3 
-            class="text-xl sm:text-2xl font-semibold tracking-[0.16em] uppercase"
+            class="font-serif text-2xl sm:text-3xl font-semibold tracking-normal"
             style="font-family: 'Playfair Display', serif;"
           >
             Žan Stanković
           </h3>
-          <p class="mt-4 max-w-xl text-sm sm:text-base text-gray-300 leading-relaxed">
+          <p class="mt-4 max-w-xl text-sm sm:text-base text-white/58 leading-7">
             {{ t('footer.besedilo') }}
           </p>
         </div>
 
-        <!-- Desno: social -->
         <div class="w-full md:w-auto">
           <p
-            class="text-sm font-semibold tracking-[0.16em] uppercase mb-4 text-gray-200 text-left md:text-right"
+            class="text-xs font-semibold tracking-[0.22em] uppercase mb-4 text-[#d8c29a] text-left md:text-right"
           >
             {{ t('footer.linki') }}
           </p>
@@ -54,7 +51,7 @@ const socialLinks = [
               :href="social.href"
               target="_blank"
               rel="noreferrer"
-              class="transition-transform hover:scale-110"
+              class="opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
               :aria-label="social.name"
             >
               <img
@@ -70,13 +67,11 @@ const socialLinks = [
         </div>
       </div>
 
-      <!-- Črta -->
-      <div class="mt-10 border-t border-gray-700"></div>
+      <div class="mt-10 border-t border-white/10"></div>
 
-      <!-- Copyright -->
-      <div class="mt-6 text-center text-xs sm:text-sm text-gray-400">
+      <div class="mt-6 text-center text-xs sm:text-sm text-white/45">
         © Copyright {{ currentYear }} · Made by
-        <span class="font-semibold text-white">
+        <span class="font-semibold text-white/75">
           Žan Stanković
         </span>
       </div>

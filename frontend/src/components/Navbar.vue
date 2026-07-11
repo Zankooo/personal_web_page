@@ -51,26 +51,21 @@ watch(locale, (newVal) => {
 </script>
 
 <template>
-  <header class="bg-white border-b border-gray-200 fixed top-0 left-0 w-full z-50">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-
+  <header class="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-[#1f2420]/90 text-white backdrop-blur-xl">
     <div
-      class="max-w-6xl mx-auto flex items-center justify-between py-2 sm:py-3 md:py-4 px-3 sm:px-5 lg:px-8 transition-all duration-300"
+      class="max-w-6xl mx-auto flex items-center justify-between py-3 sm:py-4 px-4 sm:px-6 lg:px-8 transition-all duration-300"
     >
       <div
-        class="flex items-center space-x-2 sm:space-x-4 rounded-2xl p-1 sm:p-2 bg-white transition-colors duration-300"
+        class="flex items-center space-x-3 sm:space-x-4 transition-colors duration-300"
       >
         <img
           src="@/assets/MyAvatar.jpg"
           alt="Avatar"
-          class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-2xl object-cover transition-all duration-300"
+          class="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-1 ring-[#d8c29a]/60 transition-all duration-300"
         />
         <a
           @click="scrollToTop"
-          class="font-bold tracking-wide text-base sm:text-lg md:text-xl lg:text-2xl transition-colors duration-300 hover:text-gray-500 cursor-pointer bg-transparent border-none outline-none"
+          class="font-serif text-base sm:text-lg md:text-xl font-semibold tracking-normal transition-colors duration-300 hover:text-[#d8c29a] cursor-pointer bg-transparent border-none outline-none"
           style="font-family: 'Playfair Display', serif;"
         >
           ŽAN STANKOVIĆ
@@ -84,13 +79,13 @@ watch(locale, (newVal) => {
         <a href="#collaborations" class="nav-link">{{ t('nav.collaborations') }}</a>
         <a href="#contact" class="nav-link">{{ t('nav.contact') }}</a>
 
-        <div class="flex items-center gap-2 border-l border-gray-200 pl-4">
+        <div class="flex items-center gap-2 border-l border-white/15 pl-4">
           <button
             v-for="lang in languages"
             :key="lang.code"
             @click="changeLanguage(lang.code)"
             class="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.16em]"
-            :class="locale === lang.code ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500'"
+            :class="locale === lang.code ? 'text-[#d8c29a]' : 'text-white/55 hover:text-white'"
           >
             {{ lang.label }}
           </button>
@@ -100,21 +95,21 @@ watch(locale, (newVal) => {
 
       <!-- BURGER GUMB -->
       <button
-        class="lg:hidden inline-flex items-center gap-1 sm:gap-2 p-1 sm:p-2 rounded-md text-gray-700 hover:text-blue-500 hover:bg-gray-100 focus:outline-none transition-all duration-300"
+        class="lg:hidden inline-flex items-center gap-2 p-2 text-white/85 hover:text-[#d8c29a] focus:outline-none transition-all duration-300"
         @click="isOpen = !isOpen"
         aria-label="Toggle navigation"
       >
         <span v-if="!isOpen" class="space-y-1 sm:space-y-1.5">
-          <span class="block w-5 sm:w-6 h-0.5 bg-gray-800"></span>
-          <span class="block w-5 sm:w-6 h-0.5 bg-gray-800"></span>
-          <span class="block w-5 sm:w-6 h-0.5 bg-gray-800"></span>
+          <span class="block w-5 sm:w-6 h-px bg-current"></span>
+          <span class="block w-5 sm:w-6 h-px bg-current"></span>
+          <span class="block w-5 sm:w-6 h-px bg-current"></span>
         </span>
         <span v-else class="relative w-5 sm:w-6 h-5 sm:h-6">
           <span
-            class="absolute inset-0 rotate-45 origin-center block h-0.5 bg-gray-800 mt-2.5 sm:mt-3"
+            class="absolute inset-0 rotate-45 origin-center block h-px bg-current mt-2.5 sm:mt-3"
           ></span>
           <span
-            class="absolute inset-0 -rotate-45 origin-center block h-0.5 bg-gray-800 mt-2.5 sm:mt-3"
+            class="absolute inset-0 -rotate-45 origin-center block h-px bg-current mt-2.5 sm:mt-3"
           ></span>
         </span>
 
@@ -130,7 +125,7 @@ watch(locale, (newVal) => {
     <Transition name="mobile-menu">
       <div
         v-if="isOpen"
-        class="lg:hidden absolute inset-x-0 top-full bg-white border-b border-gray-200 shadow-md"
+        class="lg:hidden absolute inset-x-0 top-full border-b border-white/10 bg-[#1f2420]/95 shadow-2xl backdrop-blur-xl"
       >
         <nav class="flex flex-col px-4 py-3 space-y-2 max-w-6xl mx-auto">
           <a href="#about" class="mobile-link py-1" @click="isOpen = false">{{ t('nav.about') }}</a>
@@ -143,8 +138,8 @@ watch(locale, (newVal) => {
           </a>
           <a href="#contact" class="mobile-link py-1" @click="isOpen = false">{{ t('nav.contact') }}</a>
 
-          <div class="pt-3 border-t border-gray-200 flex items-center gap-3">
-            <span class="text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+          <div class="pt-3 border-t border-white/10 flex items-center gap-3">
+            <span class="text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
               {{ t('nav.language') || 'Language' }}
             </span>
             <div class="flex items-center gap-2">
@@ -153,7 +148,7 @@ watch(locale, (newVal) => {
                 :key="lang.code"
                 @click="changeLanguage(lang.code); isOpen = false"
                 class="text-xs font-semibold uppercase tracking-[0.16em]"
-                :class="locale === lang.code ? 'text-blue-500' : 'text-gray-500 hover:text-blue-500'"
+                :class="locale === lang.code ? 'text-[#d8c29a]' : 'text-white/55 hover:text-white'"
               >
                 {{ lang.label }}
               </button>
@@ -167,11 +162,11 @@ watch(locale, (newVal) => {
 
 <style scoped>
 .nav-link {
-  @apply font-semibold text-xs sm:text-sm uppercase tracking-[0.14em] sm:tracking-[0.16em] text-black hover:text-blue-500 whitespace-nowrap transition-all duration-200;
+  @apply font-semibold text-xs uppercase tracking-[0.18em] text-white/70 hover:text-[#d8c29a] whitespace-nowrap transition-all duration-200;
 }
 
 .mobile-link {
-  @apply font-semibold text-sm uppercase tracking-[0.14em] text-black hover:text-blue-500;
+  @apply font-semibold text-sm uppercase tracking-[0.16em] text-white/75 hover:text-[#d8c29a];
 }
 
 .mobile-menu-enter-active,

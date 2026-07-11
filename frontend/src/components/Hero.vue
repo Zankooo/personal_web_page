@@ -5,53 +5,70 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-
-  <section id="hero" class="relative font-poppins">
-    <div
-      class="max-w-3xl mx-auto flex flex-col items-center justify-center min-h-[90vh] px-4 text-center"
-    >
-      <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-medium leading-tight mb-6"
-      >
-        {{ t('hero.titleLine1') }}
-        <br />
-        {{ t('hero.titleLine2') }}
-        <br />
-        {{ t('hero.titleLine3') }}
-      </h1>
-
-      <div class="space-y-2 text-base sm:text-lg text-gray-800 mb-8">
-        <p>{{ t('hero.desc1') }}</p>
-        <p>{{ t('hero.desc2') }}</p>
-        <p>{{ t('hero.desc3') }}</p>
-      </div>
-
-      <a
-        href="#contact"
-        class="inline-flex items-center justify-center
-        px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
-        rounded-xl bg-blue-500 text-white
-        text-xs sm:text-sm md:text-base
-        font-semibold uppercase tracking-wide
-        shadow-md hover:bg-blue-600 hover:shadow-lg transition"
-      >
-        {{ t('hero.button') }}
-      </a>
+  <section id="hero" class="relative overflow-hidden bg-[#1f2420] text-white">
+    <div class="absolute inset-0">
+      <img
+        src="@/assets/hero-premium-bg.png"
+        alt=""
+        class="h-full w-full object-cover object-center opacity-90"
+      />
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,36,32,0.94)_0%,rgba(31,36,32,0.80)_48%,rgba(31,36,32,0.54)_100%)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_20%,rgba(216,194,154,0.22),transparent_32%)]"></div>
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8c29a]/50 to-transparent"></div>
     </div>
 
     <div
-      class="scroll-indicator absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none
-      scale-75 sm:scale-90 md:scale-100"
+      class="relative max-w-6xl mx-auto flex min-h-[92vh] flex-col justify-center px-4 sm:px-6 lg:px-8 pt-24 pb-24"
+    >
+      <div class="max-w-3xl">
+        <div class="flex items-center gap-4">
+          <span class="h-px w-12 bg-[#d8c29a]"></span>
+          <p class="section-kicker text-[#d8c29a]">
+            Portfolio / Computer Science
+          </p>
+        </div>
+        <h1
+            class="mt-6 font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.94] tracking-normal"
+        >
+          {{ t('hero.titleLine1') }}
+        </h1>
+
+        <div class="mt-8 max-w-2xl border-l border-[#d8c29a]/45 pl-5 space-y-3 text-base sm:text-lg leading-8 text-white/76">
+          <p>{{ t('hero.desc1') }}</p>
+          <p>{{ t('hero.desc2') }}</p>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href="#contact"
+            class="premium-button"
+          >
+            {{ t('hero.button') }}
+          </a>
+          <a
+            href="#about"
+            class="inline-flex items-center justify-center border border-white/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/80 transition duration-300 hover:-translate-y-0.5 hover:border-[#d8c29a] hover:text-[#d8c29a]"
+          >
+            {{ t('nav.about') }}
+          </a>
+        </div>
+
+        <div class="mt-14 grid w-fit grid-cols-1 gap-3 border-y border-white/12 py-5 pr-10 text-left text-xs uppercase tracking-[0.22em] text-white/54 sm:w-full sm:max-w-2xl sm:grid-cols-3 sm:pr-0 sm:text-center">
+          <span>Frontend</span>
+          <span>Backend</span>
+          <span>Automation</span>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="scroll-indicator absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center pointer-events-none scale-75 sm:scale-90 md:scale-100"
     >
       <div class="mouse-box">
         <div class="mouse-wheel"></div>
       </div>
       <span
-        class="mt-2 text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-gray-500 select-none"
+        class="mt-2 text-[9px] sm:text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-white/45 select-none"
       >
         {{ t('hero.scroll') }}
       </span>
@@ -60,21 +77,11 @@ const { t } = useI18n()
 </template>
 
 <style>
-:root {
-  --svetlo_modra_background: #e9f1f7;
-}
-
-#hero {
-  background-color: var(--svetlo_modra_background);
-  background-image: radial-gradient(#e5e5e5 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
 .mouse-box {
   width: 28px;
   height: 48px;
   border-radius: 999px;
-  border: 2px solid #9ca3af;
+  border: 1px solid rgba(216, 194, 154, 0.55);
   position: relative;
 }
 
@@ -82,7 +89,7 @@ const { t } = useI18n()
   width: 6px;
   height: 6px;
   border-radius: 999px;
-  background-color: #9ca3af;
+  background-color: #d8c29a;
   position: absolute;
   left: 50%;
   top: 10px;

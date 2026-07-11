@@ -1,5 +1,4 @@
 <script setup>
-// zaenkrat ne rabimo logike – tu lahko kasneje dodaš npr. props za CV/LinkedIn linke
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 </script>
@@ -7,30 +6,31 @@ const { t } = useI18n()
 <template>
   <section
     id="about"
-    class="scroll-mt-28 bg-[#F5F5F5] font-poppins min-h-screen flex items-start pt-16 sm:pt-20 md:pt-24"
+    class="scroll-mt-28 bg-[#f7f3ec] min-h-screen flex items-center py-20 sm:py-24 md:py-28"
 
   >
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <!-- Glavni naslov -->
-      <div class="text-center mb-8">
-        <h2 class="text-2xl sm:text-3xl font-bold tracking-wide">
+      <div class="mb-12 flex flex-col gap-6 border-b border-[#b08a4a]/18 pb-10 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+        <p class="section-kicker">
+          Profile
+        </p>
+        <h2 class="section-title">
           {{ t('about.title') }}
         </h2>
-        <div class="mt-3 flex justify-center">
-          <span class="h-1 w-16 rounded-full bg-blue-500"></span>
+        <div class="section-rule"></div>
         </div>
+        
       </div>
 
-      <!-- Vsebina: levo tekst, desno slika -->
-      <div class="grid gap-10 lg:grid-cols-2 items-center">
-        <!-- LEVA STRAN – tekst -->
-        <div class="text-center lg:text-left">
-          <h3 class="text-lg sm:text-xl md:text-2xl font-semibold mb-6">
+      <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] items-center">
+        <div class="premium-surface p-6 sm:p-8">
+          <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold mb-7 text-[#171512]">
             {{t('about.subtitle')}}
           </h3>
 
           <div
-            class="text-sm sm:text-base text-gray-800 leading-relaxed space-y-4"
+            class="max-w-2xl text-sm sm:text-base text-[#4f4a43] leading-8 space-y-5"
           >
             <p>
               {{ t('about.text1') }}
@@ -52,32 +52,20 @@ const { t } = useI18n()
             </p>
           </div>
 
-          <!-- Gumba -->
           <div
-            class="mt-10 flex flex-wrap gap-3 justify-center lg:justify-start"
+            class="mt-10 flex flex-wrap gap-3"
           >
             <a
               href="cv.pdf"
               download="Zan-Stankovic-CV.pdf"
-              class="inline-flex items-center justify-center
-                    px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
-                    rounded-xl bg-blue-500 text-white
-                    text-xs sm:text-sm md:text-base
-                    font-semibold uppercase tracking-wide
-                    shadow-md hover:bg-blue-600 hover:shadow-lg transition"
+              class="premium-button"
             >
               {{ t('about.zivljenjepis') }}
             </a>
 
             <a
               href="https://www.linkedin.com/in/zan-stankovic-53b98725b/"
-              class="inline-flex items-center justify-center
-              px-5 py-2 sm:px-6 sm:py-2.5 md:px-8 md:py-3
-              rounded-xl border border-blue-500 text-blue-500
-              bg-white
-              text-xs sm:text-sm md:text-base
-              font-semibold uppercase tracking-wide
-              hover:bg-blue-500 hover:text-white transition-colors duration-300"
+              class="premium-button-outline"
 
             >
               LinkedIn
@@ -85,19 +73,19 @@ const { t } = useI18n()
           </div>
         </div>
 
-        <!-- DESNA STRAN – slika -->
-        <div class="flex flex-col items-center lg:items-end space-y-3 -mt-4">
+        <div class="flex flex-col items-center lg:items-end">
           <div
-              class="w-40 sm:w-52 md:w-64 lg:w-72 aspect-[3/4] rounded-2xl overflow-hidden shadow-sm bg-gray-200"
+              class="relative w-full max-w-[380px] aspect-[4/5] bg-[#ded4c5] p-3 shadow-[0_34px_90px_rgba(31,36,32,0.22)] ring-1 ring-[#b08a4a]/25"
             >
+              <div class="absolute -right-4 -top-4 h-24 w-24 border-r border-t border-[#b08a4a]/45"></div>
+              <div class="absolute -bottom-4 -left-4 h-24 w-24 border-b border-l border-[#b08a4a]/45"></div>
+              <div class="absolute inset-6 border border-white/40 z-10 pointer-events-none"></div>
               <img
                 src="@/assets/ludi-zan.jpg"
                 alt="Žan avatar"
-                class="w-full h-full object-cover object-[50%_65%]"
+                class="relative w-full h-full object-cover object-[50%_65%]"
               />
             </div>
-
-
         </div>
       </div>
     </div>
