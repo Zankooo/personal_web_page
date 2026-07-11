@@ -28,7 +28,7 @@ const { t } = useI18n()
       <img
         src="../assets/soup.png"
         alt="Logo 1"
-        class="h-auto max-h-14 sm:max-h-16 md:max-h-20 object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+        class="h-auto max-h-14 sm:max-h-16 md:max-h-20 object-contain"
       />
     </div>
 
@@ -36,7 +36,7 @@ const { t } = useI18n()
       <img
         src="../assets/stud-svet.png"
         alt="Logo 2"
-        class="h-auto max-h-20 sm:max-h-24 md:max-h-28 object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+        class="h-auto max-h-20 sm:max-h-24 md:max-h-28 object-contain"
       />
     </div>
 
@@ -44,7 +44,7 @@ const { t } = useI18n()
       <img
         src="../assets/celtra.png"
         alt="Logo 3"
-        class="h-auto max-h-9 sm:max-h-12 md:max-h-14 object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+        class="h-auto max-h-9 sm:max-h-12 md:max-h-14 object-contain"
       />
     </div>
 
@@ -52,9 +52,12 @@ const { t } = useI18n()
       <img
         src="../assets/sparkasse.png"
         alt="Logo 4"
-        class="h-auto max-h-16 sm:max-h-20 md:max-h-24 w-full object-contain grayscale opacity-70 transition duration-300 hover:grayscale-0 hover:opacity-100"
+        class="h-auto max-h-16 sm:max-h-20 md:max-h-24 w-full object-contain"
       />
     </div>
+    
+
+    
     
   </div>
 </div>

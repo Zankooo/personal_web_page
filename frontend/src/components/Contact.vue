@@ -10,6 +10,7 @@ const message = ref("")
 
 const success = ref(false)
 const error = ref(false)
+const validationError = ref(false)
 const isSubmitting = ref(false)
 
 async function handleSubmit() {
@@ -17,9 +18,10 @@ async function handleSubmit() {
 
   success.value = false
   error.value = false
+  validationError.value = false
 
   if (!name.value || !email.value || !message.value) {
-    error.value = true
+    validationError.value = true
     return
   }
 
@@ -99,6 +101,7 @@ async function handleSubmit() {
             <input
               v-model="name"
               type="text"
+              required
               :placeholder="t('kontakt.napis_tabela_1')"
               class="w-full border border-[#d8c29a]/55 bg-white/70 px-4 py-3 text-sm sm:text-base text-[#171512] outline-none transition placeholder:text-[#8b857b] focus:border-[#b08a4a] focus:ring-2 focus:ring-[#d8c29a]/50"
             />
@@ -111,6 +114,7 @@ async function handleSubmit() {
             <input
               v-model="email"
               type="email"
+              required
               :placeholder="t('kontakt.napis_tabela_2')"
               class="w-full border border-[#d8c29a]/55 bg-white/70 px-4 py-3 text-sm sm:text-base text-[#171512] outline-none transition placeholder:text-[#8b857b] focus:border-[#b08a4a] focus:ring-2 focus:ring-[#d8c29a]/50"
             />
@@ -122,6 +126,7 @@ async function handleSubmit() {
             </label>
             <textarea
               v-model="message"
+              required
               rows="5"
               :placeholder="t('kontakt.napis_tabela_3')"
               class="w-full border border-[#d8c29a]/55 bg-white/70 px-4 py-3 text-sm sm:text-base text-[#171512] outline-none resize-none transition placeholder:text-[#8b857b] focus:border-[#b08a4a] focus:ring-2 focus:ring-[#d8c29a]/50"
@@ -131,6 +136,10 @@ async function handleSubmit() {
 
         <p v-if="success" class="text-[#2f7d46] text-sm">
           {{ t('kontakt.success') }}
+        </p>
+
+        <p v-if="validationError" class="text-[#a33b2f] text-sm">
+          {{ t('kontakt.validationError') }}
         </p>
 
         <p v-if="error" class="text-[#a33b2f] text-sm">

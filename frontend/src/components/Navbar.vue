@@ -65,8 +65,7 @@ watch(locale, (newVal) => {
         />
         <a
           @click="scrollToTop"
-          class="font-serif text-base sm:text-lg md:text-xl font-semibold tracking-normal transition-colors duration-300 hover:text-[#d8c29a] cursor-pointer bg-transparent border-none outline-none"
-          style="font-family: 'Playfair Display', serif;"
+          class="font-serif text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.06em] transition-colors duration-300 hover:text-[#d8c29a] cursor-pointer bg-transparent border-none outline-none"
         >
           ŽAN STANKOVIĆ
         </a>
@@ -162,11 +161,11 @@ watch(locale, (newVal) => {
 
 <style scoped>
 .nav-link {
-  @apply font-semibold text-xs uppercase tracking-[0.18em] text-white/70 hover:text-[#d8c29a] whitespace-nowrap transition-all duration-200;
+  @apply font-serif font-semibold text-[17px] uppercase tracking-[0.10em] text-white/70 hover:text-[#d8c29a] whitespace-nowrap transition-all duration-200;
 }
 
 .mobile-link {
-  @apply font-semibold text-sm uppercase tracking-[0.16em] text-white/75 hover:text-[#d8c29a];
+  @apply font-serif font-semibold text-[17px] uppercase tracking-[0.10em] text-white/75 hover:text-[#d8c29a];
 }
 
 .mobile-menu-enter-active,

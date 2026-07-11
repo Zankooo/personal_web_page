@@ -28,11 +28,11 @@ const messages = {
     about: {
       title: 'O MENI',
       subtitle: 'Profil in usmeritev',
-      text1: 'Sem 26-letni študent računalništva, strasten glede tehnologije, ustvarjalnosti in reševanja resničnih problemov s pomočjo kode in oblikovanja. Rad raziskujem, kako stvari delujejo, in svoje nekonvencionalne ideje pretvarjam v funkcionalne, elegantne digitalne rešitve.',
-      text2: 'Moji interesi segajo na številna področja — od frontend in backend razvoja do oblikovanja uporabniške izkušnje (UI/UX), omrežij, avtomatizacije, AI... Uživam v ustvarjanju izkušenj, ki poenostavijo kompleksne stvari in prinašajo resnično vrednost.',
+      text1: 'Sem študent računalništva z velikim zanimanjem za tehnologijo, ustvarjalnost ter reševanje praktičnih problemov s pomočjo programiranja in oblikovanja. Veseli me raziskovanje delovanja različnih sistemov ter pretvarjanje idej v funkcionalne, premišljene in uporabniku prijazne digitalne rešitve.',
+      text2: 'Trenutno nadgrajujem znanje sodobnih frontend ogrodij in se pripravljam na pridobitev certifikata CCNA, s katerim želim poglobiti svoje razumevanje računalniških omrežij.',
       text3: 'Trenutno izpopolnjujem svoje znanje sodobnih frontend ogrodij in se pripravljam na pridobitev certifikata CCNA, da poglobim svoje razumevanje računalniških omrežij.',
-      text4: 'Na koncu koncev sem vedno v procesu učenja — preizkušam nove tehnologije, izpopolnjujem svoje delovne procese, spoznavam nove ljudi in z vsako izkušnjo širim svoja obzorja.',
-      text5: 'Če si želiš sodelovati z mano ali se samo pogovarjati  o tehnologiji in novih idejah, me z veseljem kontaktiraš!',
+      text4: 'Pomemben del mojega razvoja predstavlja stalno učenje. Redno raziskujem nove tehnologije, izboljšujem svoje delovne procese, pridobivam nova znanja in z različnimi izkušnjami širim svoj strokovni pogled.',
+      text5: 'Odprt sem za nova sodelovanja, projekte ter izmenjavo idej s področja tehnologije in digitalnih rešitev. Za dodatne informacije ali morebitno sodelovanje me lahko kontaktirate.',
       zivljenjepis: 'Pridobi CV'
     },
     skills: {
@@ -59,6 +59,7 @@ const messages = {
       sending: 'Sporočilo se pošilja. To lahko traja nekaj sekund.',
       sendingButton: 'POŠILJAM',
       success: 'Sporočilo je bilo uspešno poslano.',
+      validationError: 'Prosimo, izpolni vsa polja.',
       error: 'Prišlo je do napake. Prosimo, poskusi znova.'
     },
     footer: {
@@ -95,11 +96,11 @@ const messages = {
       title: 'ABOUT ME',
       subtitle: 'Profile and direction',
       summary: 'Digital development with a focus on structure, usability, and a clean visual presence.',
-      text1: 'I’m a 26-year-old Computer Science student passionate about technology, creativity, and solving real-world problems through code and design. I love exploring how things work and turning unconventional ideas into functional, elegant digital solutions.',
-      text2: 'My interests span multiple areas — from frontend and backend development to UI/UX design, networking, automation, AI... I enjoy creating experiences that simplify complexity and deliver real value.',
-      text3: 'Currently, I’m sharpening my skills in modern frontend frameworks and preparing for the CCNA certification to deepen my understanding of computer networks.',
-      text4: 'All in all, I’m always learning — experimenting with new technologies, refining my workflows, meeting new people, and broadening my perspective with every new experience.',
-      text5: 'If you’d like to collaborate or just chat about technology and fresh ideas, feel free to reach out!',
+      text1: 'I am a computer science student with a strong interest in technology, creativity, and solving real-world problems through programming and design. I enjoy exploring how different systems work and transforming ideas into functional, thoughtful, and user-friendly digital solutions.',
+      text2: 'My interests include frontend and backend development, user interface and user experience design, computer networks, automation, and artificial intelligence. In my work, I aim to create solutions that simplify complex processes, improve the user experience, and deliver meaningful value.',
+      text3: 'I am currently expanding my knowledge of modern frontend frameworks and preparing for the CCNA certification to deepen my understanding of computer networks.',
+      text4: 'Continuous learning is an important part of my professional development. I regularly explore new technologies, improve my workflows, develop new skills, and broaden my perspective through different experiences and collaborations.',
+      text5: 'I am open to new opportunities, projects, and discussions related to technology and digital solutions. Please feel free to contact me regarding potential collaboration or further information.',
       zivljenjepis: 'Get my CV'
     },
     skills: {
@@ -126,6 +127,7 @@ const messages = {
       sending: 'Your message is being sent. This may take a few seconds.',
       sendingButton: 'SENDING',
       success: 'Your message has been sent successfully.',
+      validationError: 'Please fill in all fields.',
       error: 'Something went wrong. Please try again.'
     },
     footer: {

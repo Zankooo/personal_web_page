@@ -1,6 +1,11 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-const { t } = useI18n()
+import { computed } from 'vue'
+
+const { t, locale } = useI18n()
+
+const cvFile = computed(() => locale.value === 'en' ? 'cv-eng.pdf' : 'cv.pdf')
+const cvDownloadName = computed(() => locale.value === 'en' ? 'Zan-Stankovic-CV-ENG.pdf' : 'Zan-Stankovic-CV.pdf')
 </script>
 
 <template>
@@ -56,8 +61,8 @@ const { t } = useI18n()
             class="mt-10 flex flex-wrap gap-3"
           >
             <a
-              href="cv.pdf"
-              download="Zan-Stankovic-CV.pdf"
+              :href="cvFile"
+              :download="cvDownloadName"
               class="premium-button"
             >
               {{ t('about.zivljenjepis') }}
