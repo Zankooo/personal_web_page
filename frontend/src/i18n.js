@@ -28,11 +28,11 @@ const messages = {
     about: {
       title: 'O MENI',
       subtitle: 'Profil in usmeritev',
-      text1: 'Sem študent računalništva z velikim zanimanjem za tehnologijo, ustvarjalnost ter reševanje praktičnih problemov s pomočjo programiranja in oblikovanja. Veseli me raziskovanje delovanja različnih sistemov ter pretvarjanje idej v funkcionalne, premišljene in uporabniku prijazne digitalne rešitve.',
-      text2: 'Trenutno nadgrajujem znanje sodobnih frontend ogrodij in se pripravljam na pridobitev certifikata CCNA, s katerim želim poglobiti svoje razumevanje računalniških omrežij.',
-      text3: 'Trenutno izpopolnjujem svoje znanje sodobnih frontend ogrodij in se pripravljam na pridobitev certifikata CCNA, da poglobim svoje razumevanje računalniških omrežij.',
-      text4: 'Pomemben del mojega razvoja predstavlja stalno učenje. Redno raziskujem nove tehnologije, izboljšujem svoje delovne procese, pridobivam nova znanja in z različnimi izkušnjami širim svoj strokovni pogled.',
-      text5: 'Odprt sem za nova sodelovanja, projekte ter izmenjavo idej s področja tehnologije in digitalnih rešitev. Za dodatne informacije ali morebitno sodelovanje me lahko kontaktirate.',
+      text1: 'Študent računalništva, ki z ustvarjalnim pristopom, entuziazmom in uporabo IT tehnologij iščem praktične rešitve izzivov. Veseli me raziskovanje delovanja različnih sistemov ter pretvarjanje idej v funkcionalne, premišljene in uporabniku prijazne digitalne rešitve.',
+      text2: 'Trenutno izpopolnjujem in nadgrajujem znanje sodobnih frontend ogrodij in se pripravljam na pridobitev certifikata CCNA, s katerim želim poglobiti svoje razumevanje računalniških omrežij.',
+      text3: 'Učenje in raziskovanje, preučevanje novih tehnologij, izboljševanje delovnih procesov, pridobivanje novih znanj, širjenje strokovnega pogleda na podlagi izkušenj ter pridobivanja kompetenc na strokovnem področju dela, zame predstavljajo temelj mojega razvoja in so stalnica v mojem življenju.',
+      text4: 'Sem pozitivno naravnana osebnost, odprt za nova sodelovanja, projekte ter izmenjavo idej s področja tehnologij in digitalnih rešitev. Vztrajnost in požrtvovalnost sem izpilil že v mladosti, ki se jo preživel na nogometnih zelenicah zato sem zelo ponosen na dvakrat pridobljeni naslovom državnega prvaka v mladinski selekciji.',
+      text5: 'Veselim se novih znanj in sodelovanj, zato sem pripravljen na nove izzive in povezovanja. Za dodatne informacije ali morebitno sodelovanje me lahko kontaktirate.',
       zivljenjepis: 'Pridobi CV'
     },
     skills: {
@@ -94,14 +94,14 @@ const messages = {
     },
     about: {
       title: 'ABOUT ME',
-      subtitle: 'Profile and direction',
+      subtitle: 'Profile and focus',
       summary: 'Digital development with a focus on structure, usability, and a clean visual presence.',
-      text1: 'I am a computer science student with a strong interest in technology, creativity, and solving real-world problems through programming and design. I enjoy exploring how different systems work and transforming ideas into functional, thoughtful, and user-friendly digital solutions.',
-      text2: 'My interests include frontend and backend development, user interface and user experience design, computer networks, automation, and artificial intelligence. In my work, I aim to create solutions that simplify complex processes, improve the user experience, and deliver meaningful value.',
-      text3: 'I am currently expanding my knowledge of modern frontend frameworks and preparing for the CCNA certification to deepen my understanding of computer networks.',
-      text4: 'Continuous learning is an important part of my professional development. I regularly explore new technologies, improve my workflows, develop new skills, and broaden my perspective through different experiences and collaborations.',
-      text5: 'I am open to new opportunities, projects, and discussions related to technology and digital solutions. Please feel free to contact me regarding potential collaboration or further information.',
-      zivljenjepis: 'Get my CV'
+      text1: 'I am a computer science student who uses a creative approach, enthusiasm, and IT technologies to find practical solutions to challenges. I enjoy exploring how different systems work and turning ideas into functional, thoughtful, and user-friendly digital solutions.',
+      text2: 'I am currently refining and expanding my knowledge of modern frontend frameworks and preparing to obtain the CCNA certification, through which I aim to deepen my understanding of computer networks.',
+      text3: 'Learning and research, studying new technologies, improving work processes, gaining new knowledge, broadening my professional perspective through experience, and developing competencies in my field are the foundation of my growth and a constant part of my life.',
+      text4: 'I am a positive person, open to new collaborations, projects, and the exchange of ideas in the fields of technology and digital solutions. I developed persistence and dedication at a young age on the football pitch, and I am proud to have twice won the national championship title in the youth category.',
+      text5: 'I look forward to gaining new knowledge and working with others, so I am ready for new challenges and connections. For additional information or potential collaboration, feel free to contact me.',
+      zivljenjepis: 'Download CV'
     },
     skills: {
       title: 'SKILLS AND KNOWLEDGE',
