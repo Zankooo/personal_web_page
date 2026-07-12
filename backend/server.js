@@ -26,9 +26,14 @@ app.post("/api/contact", async (req, res) => {
     return res.status(400).json({ success: false, error: "Missing fields" });
   }
 
+  if (!process.env.RESEND_API_KEY || !process.env.MAIL_TO) {
+    console.error("Missing RESEND_API_KEY or MAIL_TO environment variable.");
+    return res.status(500).json({ success: false, error: "Server is not configured" });
+  }
+
   try {
     // pošlji email
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>",
       to: process.env.MAIL_TO,
       subject: "Novo sporočilo iz kontaktnega obrazca",
@@ -41,7 +46,12 @@ app.post("/api/contact", async (req, res) => {
         reply_to: email,
       });
 
-      console.log("Email poslan prek Resend.");
+      if (error) {
+        console.error("Resend napaka:", error);
+        return res.status(500).json({ success: false, error: "Sending failed" });
+      }
+
+      console.log("Email poslan prek Resend.", data);
       res.json({ success: true });
     } 
     catch (error) {
